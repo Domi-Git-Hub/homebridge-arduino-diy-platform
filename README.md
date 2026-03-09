@@ -105,7 +105,7 @@ This plugin intentionally uses **no external runtime dependency** and relies on 
 ## 3) Install in Homebridge
 
 ```bash
-sudo npm install -g homebridge-arduino-diy-platform
+npm install -g homebridge-arduino-diy-platform
 ```
 
 Then configure it from Homebridge UI using the included `config.schema.json`.
