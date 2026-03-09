@@ -1,0 +1,40 @@
+{
+  "name": "homebridge-arduino-diy-platform",
+  "version": "1.0.0",
+  "description": "Homebridge dynamic platform for Arduino and ESP projects using a JSON VPin server.",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge",
+    "arduino",
+    "esp8266",
+    "esp32",
+    "json",
+    "irrigation"
+  ],
+  "engines": {
+    "homebridge": ">=1.8.0",
+    "node": ">=20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Domi-Git-Hub/homebridge-arduino-diy-platform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Domi-Git-Hub/homebridge-arduino-diy-platform/issues"
+  },
+  "homepage": "https://github.com/Domi-Git-Hub/homebridge-arduino-diy-platform#readme",
+  "files": [
+    "index.js",
+    "lib",
+    "config.schema.json",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "lint": "node --check index.js && node --check lib/platform.js",
+    "test": "npm run lint"
+  }
+}

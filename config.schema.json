@@ -1,0 +1,202 @@
+{
+  "pluginAlias": "ArduinoPlatformDIY",
+  "pluginType": "platform",
+  "singular": true,
+  "strictValidation": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Platform Name",
+        "type": "string",
+        "default": "Arduino DIY Platform"
+      },
+      "serverurl": {
+        "title": "Server URL",
+        "type": "string",
+        "placeholder": "http://127.0.0.1:8181",
+        "default": "http://127.0.0.1:8181"
+      },
+      "pollerseconds": {
+        "title": "Poller Seconds",
+        "type": "integer",
+        "description": "Polling interval in seconds.",
+        "default": 10,
+        "minimum": 1
+      },
+      "devices": {
+        "title": "Devices",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "title": "Device Name",
+              "type": "string"
+            },
+            "token": {
+              "title": "Project Token",
+              "type": "string"
+            },
+            "deviceId": {
+              "title": "Device ID",
+              "type": "integer"
+            },
+            "manufacturer": {
+              "title": "Manufacturer",
+              "type": "string"
+            },
+            "accessories": {
+              "title": "Accessories",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "model": {
+                    "title": "Model",
+                    "type": "string"
+                  },
+                  "name": {
+                    "title": "Accessory Name",
+                    "type": "string"
+                  },
+                  "pinnumber": {
+                    "title": "Virtual Pin Number",
+                    "type": "integer"
+                  },
+                  "typeOf": {
+                    "title": "Type",
+                    "type": "string",
+                    "default": "OUTLET",
+                    "oneOf": [
+                      { "title": "Outlet", "enum": ["OUTLET"] },
+                      { "title": "Lightbulb", "enum": ["LIGHTBULB"] },
+                      { "title": "Fan", "enum": ["FAN"] },
+                      { "title": "Switch", "enum": ["SWITCH"] },
+                      { "title": "Valve (Irrigation)", "enum": ["VALVE"] },
+                      { "title": "Irrigation System", "enum": ["IRRIGATION_SYSTEM"] },
+                      { "title": "Thermostat", "enum": ["THERMOSTAT"] },
+                      { "title": "Heater/Cooler", "enum": ["HEATER_COOLER"] },
+                      { "title": "Humidifier/Dehumidifier", "enum": ["HUMIDIFIER_DEHUMIDIFIER"] },
+                      { "title": "Air Purifier", "enum": ["AIR_PURIFIER"] },
+                      { "title": "Lock Mechanism", "enum": ["LOCK_MECHANISM"] },
+                      { "title": "Garage Door Opener", "enum": ["GARAGE_DOOR_OPENER"] },
+                      { "title": "Security System", "enum": ["SECURITY_SYSTEM"] },
+                      { "title": "Temperature Sensor", "enum": ["TEMPERATURE_SENSOR"] },
+                      { "title": "Humidity Sensor", "enum": ["HUMIDITY_SENSOR"] },
+                      { "title": "Motion Sensor", "enum": ["MOTION_SENSOR"] },
+                      { "title": "Contact Sensor", "enum": ["CONTACT_SENSOR"] },
+                      { "title": "Leak Sensor", "enum": ["LEAK_SENSOR"] },
+                      { "title": "Light Sensor", "enum": ["LIGHT_SENSOR"] },
+                      { "title": "Smoke Sensor", "enum": ["SMOKE_SENSOR"] },
+                      { "title": "Carbon Monoxide Sensor", "enum": ["CARBON_MONOXIDE_SENSOR"] },
+                      { "title": "Occupancy Sensor", "enum": ["OCCUPANCY_SENSOR"] },
+                      { "title": "Door", "enum": ["DOOR"] },
+                      { "title": "Window", "enum": ["WINDOW"] },
+                      { "title": "Window Covering", "enum": ["WINDOW_COVERING"] },
+                      { "title": "Faucet", "enum": ["FAUCET"] }
+                    ]
+                  },
+                  "valves": {
+                    "title": "Valve Configuration",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "valveName": {
+                          "title": "Valve Name",
+                          "type": "string"
+                        },
+                        "valvePinNumber": {
+                          "title": "Valve VPin Number",
+                          "type": "integer"
+                        },
+                        "valveType": {
+                          "title": "Valve Type",
+                          "type": "integer",
+                          "default": 1
+                        },
+                        "valveSetDuration": {
+                          "title": "Default Set Duration",
+                          "type": "integer",
+                          "default": 120
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "debug": {
+        "title": "Debug",
+        "type": "boolean",
+        "default": true
+      }
+    }
+  },
+  "layout": [
+    "name",
+    {
+      "type": "flex",
+      "flex-flow": "row wrap",
+      "items": [
+        "serverurl",
+        "pollerseconds"
+      ]
+    },
+    {
+      "key": "devices",
+      "type": "section",
+      "title": "Devices",
+      "expandable": true,
+      "expanded": true,
+      "buttonText": "Add Device",
+      "items": [
+        "devices[].manufacturer",
+        "devices[].name",
+        "devices[].deviceId",
+        "devices[].token",
+        {
+          "key": "devices[].accessories",
+          "type": "section",
+          "title": "Accessories",
+          "expandable": true,
+          "expanded": true,
+          "buttonText": "Add Accessory",
+          "items": [
+            "devices[].accessories[].model",
+            "devices[].accessories[].name",
+            "devices[].accessories[].pinnumber",
+            "devices[].accessories[].typeOf",
+            {
+              "key": "devices[].accessories[].valves",
+              "type": "section",
+              "title": "Valve",
+              "expandable": true,
+              "expanded": true,
+              "buttonText": "Add Valve",
+              "condition": {
+                "functionBody": "try { return model.devices[arrayIndices[0]].accessories[arrayIndices[1]].typeOf === 'IRRIGATION_SYSTEM'; } catch (e) { return false; }"
+              },
+              "items": [
+                {
+                  "key": "devices[].accessories[].valves[]",
+                  "items": [
+                    "devices[].accessories[].valves[].valveName",
+                    "devices[].accessories[].valves[].valvePinNumber",
+                    "devices[].accessories[].valves[].valveType",
+                    "devices[].accessories[].valves[].valveSetDuration"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "debug"
+  ]
+}
