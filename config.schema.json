@@ -14,13 +14,13 @@
       "serverurl": {
         "title": "Server URL",
         "type": "string",
-        "placeholder": "http://127.0.0.1:8181",
-        "default": "http://127.0.0.1:8181"
+        "placeholder": "http://192.168.2.47:8181",
+				"default": "http://192.168.2.47:8181"
       },
       "pollerseconds": {
         "title": "Poller Seconds",
         "type": "integer",
-        "description": "Polling interval in seconds.",
+				"description": "in seconds",
         "default": 10,
         "minimum": 1
       },
@@ -35,7 +35,7 @@
               "type": "string"
             },
             "token": {
-              "title": "Project Token",
+              "title": "Token",
               "type": "string"
             },
             "deviceId": {
@@ -61,7 +61,7 @@
                     "type": "string"
                   },
                   "pinnumber": {
-                    "title": "Virtual Pin Number",
+                    "title": "Pin Number",
                     "type": "integer"
                   },
                   "typeOf": {
@@ -69,36 +69,166 @@
                     "type": "string",
                     "default": "OUTLET",
                     "oneOf": [
-                      { "title": "Outlet", "enum": ["OUTLET"] },
-                      { "title": "Lightbulb", "enum": ["LIGHTBULB"] },
-                      { "title": "Fan", "enum": ["FAN"] },
-                      { "title": "Switch", "enum": ["SWITCH"] },
-                      { "title": "Valve (Irrigation)", "enum": ["VALVE"] },
-                      { "title": "Irrigation System", "enum": ["IRRIGATION_SYSTEM"] },
-                      { "title": "Thermostat", "enum": ["THERMOSTAT"] },
-                      { "title": "Heater/Cooler", "enum": ["HEATER_COOLER"] },
-                      { "title": "Humidifier/Dehumidifier", "enum": ["HUMIDIFIER_DEHUMIDIFIER"] },
-                      { "title": "Air Purifier", "enum": ["AIR_PURIFIER"] },
-                      { "title": "Lock Mechanism", "enum": ["LOCK_MECHANISM"] },
-                      { "title": "Garage Door Opener", "enum": ["GARAGE_DOOR_OPENER"] },
-                      { "title": "Security System", "enum": ["SECURITY_SYSTEM"] },
-                      { "title": "Temperature Sensor", "enum": ["TEMPERATURE_SENSOR"] },
-                      { "title": "Humidity Sensor", "enum": ["HUMIDITY_SENSOR"] },
-                      { "title": "Motion Sensor", "enum": ["MOTION_SENSOR"] },
-                      { "title": "Contact Sensor", "enum": ["CONTACT_SENSOR"] },
-                      { "title": "Leak Sensor", "enum": ["LEAK_SENSOR"] },
-                      { "title": "Light Sensor", "enum": ["LIGHT_SENSOR"] },
-                      { "title": "Smoke Sensor", "enum": ["SMOKE_SENSOR"] },
-                      { "title": "Carbon Monoxide Sensor", "enum": ["CARBON_MONOXIDE_SENSOR"] },
-                      { "title": "Occupancy Sensor", "enum": ["OCCUPANCY_SENSOR"] },
-                      { "title": "Door", "enum": ["DOOR"] },
-                      { "title": "Window", "enum": ["WINDOW"] },
-                      { "title": "Window Covering", "enum": ["WINDOW_COVERING"] },
-                      { "title": "Faucet", "enum": ["FAUCET"] }
+                      {
+                        "title": "Outlet",
+                        "enum": [
+                          "OUTLET"
+                        ]
+                      },
+                      {
+                        "title": "Lightbulb",
+                        "enum": [
+                          "LIGHTBULB"
+                        ]
+                      },
+                      {
+                        "title": "Fan",
+                        "enum": [
+                          "FAN"
+                        ]
+                      },
+                      {
+                        "title": "Switch",
+                        "enum": [
+                          "SWITCH"
+                        ]
+                      },
+                      {
+                        "title": "Valve (Irrigation)",
+                        "enum": [
+                          "VALVE"
+                        ]
+                      },
+                      {
+                        "title": "Irrigation System",
+                        "enum": [
+                          "IRRIGATION_SYSTEM"
+                        ]
+                      },
+                      {
+                        "title": "Thermostat",
+                        "enum": [
+                          "THERMOSTAT"
+                        ]
+                      },
+                      {
+                        "title": "Heater/Cooler",
+                        "enum": [
+                          "HEATER_COOLER"
+                        ]
+                      },
+                      {
+                        "title": "Humidifier/Dehumidifier",
+                        "enum": [
+                          "HUMIDIFIER_DEHUMIDIFIER"
+                        ]
+                      },
+                      {
+                        "title": "Air Purifier",
+                        "enum": [
+                          "AIR_PURIFIER"
+                        ]
+                      },
+                      {
+                        "title": "Lock Mechanism",
+                        "enum": [
+                          "LOCK_MECHANISM"
+                        ]
+                      },
+                      {
+                        "title": "Garage Door Opener",
+                        "enum": [
+                          "GARAGE_DOOR_OPENER"
+                        ]
+                      },
+                      {
+                        "title": "Security System",
+                        "enum": [
+                          "SECURITY_SYSTEM"
+                        ]
+                      },
+                      {
+                        "title": "Temperature Sensor",
+                        "enum": [
+                          "TEMPERATURE_SENSOR"
+                        ]
+                      },
+                      {
+                        "title": "Humidity Sensor",
+                        "enum": [
+                          "HUMIDITY_SENSOR"
+                        ]
+                      },
+                      {
+                        "title": "Motion Sensor",
+                        "enum": [
+                          "MOTION_SENSOR"
+                        ]
+                      },
+                      {
+                        "title": "Contact Sensor",
+                        "enum": [
+                          "CONTACT_SENSOR"
+                        ]
+                      },
+                      {
+                        "title": "Leak Sensor",
+                        "enum": [
+                          "LEAK_SENSOR"
+                        ]
+                      },
+                      {
+                        "title": "Light Sensor",
+                        "enum": [
+                          "LIGHT_SENSOR"
+                        ]
+                      },
+                      {
+                        "title": "Smoke Sensor",
+                        "enum": [
+                          "SMOKE_SENSOR"
+                        ]
+                      },
+                      {
+                        "title": "Carbon Monoxide Sensor",
+                        "enum": [
+                          "CARBON_MONOXIDE_SENSOR"
+                        ]
+                      },
+                      {
+                        "title": "Occupancy Sensor",
+                        "enum": [
+                          "OCCUPANCY_SENSOR"
+                        ]
+                      },
+                      {
+                        "title": "Door",
+                        "enum": [
+                          "DOOR"
+                        ]
+                      },
+                      {
+                        "title": "Window",
+                        "enum": [
+                          "WINDOW"
+                        ]
+                      },
+                      {
+                        "title": "Window Covering",
+                        "enum": [
+                          "WINDOW_COVERING"
+                        ]
+                      },
+                      {
+                        "title": "Faucet",
+                        "enum": [
+                          "FAUCET"
+                        ]
+                      }
                     ]
                   },
                   "valves": {
-                    "title": "Valve Configuration",
+                    "title": "Extra Data",
                     "type": "array",
                     "items": {
                       "type": "object",
@@ -108,18 +238,18 @@
                           "type": "string"
                         },
                         "valvePinNumber": {
-                          "title": "Valve VPin Number",
+                          "title": "Valve Pin Number",
                           "type": "integer"
                         },
                         "valveType": {
                           "title": "Valve Type",
                           "type": "integer",
-                          "default": 1
+													"default": 1
                         },
                         "valveSetDuration": {
-                          "title": "Default Set Duration",
+                          "title": "Valve Set Duration",
                           "type": "integer",
-                          "default": 120
+													"default": 120
                         }
                       }
                     }
@@ -139,7 +269,7 @@
   },
   "layout": [
     "name",
-    {
+		{
       "type": "flex",
       "flex-flow": "row wrap",
       "items": [
@@ -155,10 +285,10 @@
       "expanded": true,
       "buttonText": "Add Device",
       "items": [
-        "devices[].manufacturer",
+				"devices[].manufacturer",
         "devices[].name",
         "devices[].deviceId",
-        "devices[].token",
+				"devices[].token",
         {
           "key": "devices[].accessories",
           "type": "section",
@@ -187,8 +317,8 @@
                   "items": [
                     "devices[].accessories[].valves[].valveName",
                     "devices[].accessories[].valves[].valvePinNumber",
-                    "devices[].accessories[].valves[].valveType",
-                    "devices[].accessories[].valves[].valveSetDuration"
+										"devices[].accessories[].valves[].valveType",
+										"devices[].accessories[].valves[].valveSetDuration"
                   ]
                 }
               ]

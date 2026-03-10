@@ -1,6 +1,6 @@
 {
   "name": "homebridge-arduino-diy-platform",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Homebridge dynamic platform for Arduino and ESP projects using a JSON VPin server.",
   "license": "MIT",
   "main": "index.js",
@@ -27,7 +27,7 @@
   "homepage": "https://github.com/Domi-Git-Hub/homebridge-arduino-diy-platform#readme",
   "files": [
     "index.js",
-    "lib",
+		"arduino-diy-server",
     "config.schema.json",
     "README.md",
     "LICENSE",
