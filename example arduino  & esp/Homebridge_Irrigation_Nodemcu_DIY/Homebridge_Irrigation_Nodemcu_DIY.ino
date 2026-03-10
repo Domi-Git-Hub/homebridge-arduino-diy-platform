@@ -30,19 +30,19 @@
 // =========================
 // ====== CONFIG USER ======
 // =========================
-char ssid[] = "Domi";
-char pass[] = "ILoveMyGirlfriend-27";
+char ssid[] = "";
+char pass[] = "";
 
 // Token du projet créé sur TON serveur.
 char projectToken[] = "a5f74f60c09431c0c023843a5949f23312b254120b7776de"; // 48 caractères hexadécimaux
 
 const char* SERVER_SCHEME = "http";      // "http" recommandé en local
-const char* SERVER_HOST = "192.168.2.47";
+const char* SERVER_HOST = "";
 const uint16_t SERVER_PORT = 8181;
 const char* SERVER_BASE_PATH = "";        // ex: "/api" si ton serveur est dans un sous-dossier
 
 const char* OTA_HOSTNAME = "irrigation-nodemcu";
-const char* OTA_PASSWORD = "6969domi"; // mot de passe OTA
+const char* OTA_PASSWORD = ""; // mot de passe OTA
 
 // La plupart des relais pour ESP8266 sont actifs à LOW.
 const bool RELAY_ACTIVE_LOW = true;
