@@ -1,0 +1,8 @@
+DIYServerClient	KEYWORD1
+begin	KEYWORD2
+loop	KEYWORD2
+enableOTA	KEYWORD2
+pollVpin	KEYWORD2
+updateVpin	KEYWORD2
+getLastError	KEYWORD2
+getLastHttpCode	KEYWORD2
