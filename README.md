@@ -150,6 +150,7 @@ Edit the database credentials and base URL.
 ## 4) Enable the Apache site
 
 Copy `arduino-diy-server/apache/arduino-diy.conf` to `/etc/apache2/sites-available/arduino-diy.conf`
+
 Create a symbolic link `sudo ln -s /etc/apache2/sites-available/arduino-diy.conf /etc/apache2/sites-enabled/arduino-diy.conf`
 
 ## 5) Open port 8181 in Apache2
