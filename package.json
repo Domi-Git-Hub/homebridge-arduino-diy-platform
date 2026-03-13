@@ -1,6 +1,6 @@
 {
   "name": "homebridge-arduino-diy-platform",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Homebridge dynamic platform for Arduino and ESP projects using a JSON VPin server.",
   "license": "MIT",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "irrigation"
   ],
   "engines": {
-    "homebridge": ">=1.8.0",
+    "homebridge": ">=1.8.0 || ^2.0.0",
     "node": ">=20.0.0"
   },
   "repository": {
